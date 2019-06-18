@@ -53,4 +53,14 @@ public class IndexController {
 
     //更多用法请查看官方文档：https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#introducing-thymeleaf
 
+
+
+
+    //静态资源
+    @RequestMapping("/e")
+    public String e(){
+        return "e";
+    }
+
+
 }
