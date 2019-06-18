@@ -8,8 +8,10 @@
 
 **springboot-ioc** ：装配bean、自定义bean、条件装配、排除装配、依赖注入、接口注入、优先注入。
 
-**springboot-thymeleaf** ：thymeleaf模板引擎基本使用。
+**springboot-thymeleaf** ：thymeleaf模板引擎。
 
 **springboot-interceptor** ：拦截器、跨域。
+
+**springboot-language** ：国际化。
 
  
