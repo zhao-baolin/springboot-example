@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div  style="height: 300px;width: 300px;background-color: darkcyan;font-size: 20px;color: #ffffff;">
+    我的名字是 <span th:text="${user.name}"></span>
+    我今年 <span th:text="${user.age}"></span>岁了
+
+    <span th:if="${user.age} > 10">我已经长大了</span>
+    <span th:if="${user.age} <= 10">我还是个孩子呢</span>
+</div>
+</body>
+</html>
