@@ -1,13 +1,11 @@
 package com.example.springbootweb.controller;
 
-import java.io.Serializable;
-
 /**
  * @Description
  * @Author zhaobaolin
  * @Date 2019/6/17
  */
-public class User implements Serializable {
+public class User{
     private String name;
     private Long sex;
 
