@@ -14,6 +14,8 @@
 
 **springboot-language** ：国际化。
 
-**springboot-jdbc** ：jdbc增删改查、返回自增id、事务处理。
+**springboot-jdbc** ：jdbc增删改查。
+
+**springboot-jpa** ：jpa增删改查。
 
  
