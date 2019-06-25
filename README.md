@@ -1,6 +1,6 @@
-## Spring Boot 2 示例教程
+## Spring Boot 2 示例教程（求star 求fork）
 
-目录：
+章节目录：
 
 **springboot-web** ：路由、参数、数据验证。
 
@@ -19,5 +19,7 @@
 **springboot-jpa** ：jpa。
 
 **springboot-mybatis** ：mybatis、事务。
+
+**springboot-log** ：Logback极简使用、按天按级别生成文件。
 
  
