@@ -5,8 +5,10 @@ CREATE TABLE `tb_user` (
   `user_name` varchar(64) NOT NULL COMMENT '用户名',
   `sex` int(1) NOT NULL DEFAULT '0' COMMENT '性别 1男2女0未知',
   `age` int(11) NOT NULL COMMENT '年龄',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_name` (`user_name`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8
+
 
 
 insert  into `tb_user`(`id`,`user_name`,`sex`,`age`) values 

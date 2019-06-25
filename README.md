@@ -14,8 +14,10 @@
 
 **springboot-language** ：国际化。
 
-**springboot-jdbc** ：jdbc增删改查。
+**springboot-jdbc** ：jdbc。
 
-**springboot-jpa** ：jpa增删改查。
+**springboot-jpa** ：jpa。
+
+**springboot-mybatis** ：mybatis、事务。
 
  

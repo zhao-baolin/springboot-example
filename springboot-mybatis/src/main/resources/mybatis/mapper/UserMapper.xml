@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.springbootmybatis.dao.UserDao">
+	<resultMap id="BaseResultMap" type="com.example.springbootmybatis.entity.User">
+		<result column="id" property="id" />
+		<result column="user_name" property="userName" />
+		<result column="sex" property="sex" />
+		<result column="age" property="age" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		id, user_name, sex, age
+	</sql>
+
+	<!--resultMap指定将结果进行映射处理-->
+	<select id="findById" resultMap="BaseResultMap" parameterType="Integer">
+		select
+		<include refid="Base_Column_List" /><!--引入外部定义的代码块-->
+		from tb_user
+		where id = #{id}
+	</select>
+
+	<!--只返回一个字段名，用resultType指定类型即可-->
+	<select id="findNameById" resultType="String" parameterType="Integer">
+		select
+		user_name
+		from tb_user
+		where id = #{id}
+	</select>
+
+	<!--单条数据和多条数据在这里没有区别，区别在于接口方法的返回值类型，会自动映射-->
+	<select id="selectAll" resultMap="BaseResultMap">
+		select
+		*
+		from tb_user
+	</select>
+
+	<!--like模糊查询，使用了if条件判断-->
+	<select id="selectLikeName" resultMap="BaseResultMap">
+		select
+		*
+		from tb_user where 1=1
+		<if test="userName != null and userName != ''">
+			and user_name like concat('%',#{userName},'%')
+		</if>
+	</select>
+
+	<!--分页-->
+	<select id="selectLimit" resultMap="BaseResultMap">
+		select
+		*
+		from tb_user where 1=1
+		<if test="limit > 0">
+			limit #{begin},#{limit}
+		</if>
+	</select>
+
+	<!--默认返回受影响行数-->
+	<insert id="insert">
+		insert into tb_user (user_name,sex,age) values(#{userName},#{sex},#{age});
+	</insert>
+
+	<!--主键回填-->
+	<insert id="insertGetId" useGeneratedKeys="true" keyProperty="id">
+		insert into tb_user (user_name,sex,age) values(#{userName},#{sex},#{age});
+	</insert>
+
+
+	<!--更新语句-->
+	<update id="update">
+		update tb_user set age=#{age} where id=#{id}
+	</update>
+
+
+	<!--删除语句-->
+	<delete id="delete">
+		delete from tb_user where id=#{id}
+	</delete>
+
+
+	<select id="startTrans">
+        START TRANSACTION;
+    </select>
+
+	<select id="commit">
+        COMMIT;
+    </select>
+
+	<select id="rollback">
+        ROLLBACK;
+    </select>
+
+</mapper>
