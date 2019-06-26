@@ -22,4 +22,6 @@
 
 **springboot-log** ：Logback极简使用、按天按级别生成文件。
 
+**springboot-exception** ：统一异常处理。
+
  
