@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index_a</title>
+</head>
+<body>
+<button id="con">连线</button>
+
+<div id="content" style="display: none">
+请输入：<input type="text" id="name"><input type="button" id="in" value="确定">
+</div>
+<div id="message">
+
+</div>
+</body>
+</html>
+<script src="/jquery-3.3.1.min.js"></script>
+<script src="/sockjs.min.js"></script>
+<script src="/stomp.js"></script>
+
+<script>
+    var stompClient = null;
+    var is_connect = false;
+    $("#con").click(function () {
+        if(!is_connect){
+            is_connect = true;
+            connect();
+            $("#content").show();
+            $(this).text("退出");
+        }else{
+            disconnect();
+            is_connect = false;
+            $("#message").html("");
+            $("#content").hide();
+            $(this).text("连线");
+        }
+
+    });
+
+    $("#in").click(function(e){
+        var name = $("#name").val();
+        stompClient.send("/hello", {},JSON.stringify({ "name": name }));
+    });
+
+    var connect = function () {
+        var socket = new SockJS("/common");
+        stompClient = Stomp.over(socket);
+        stompClient.connect({}, function(frame) {
+            console.log('Connected: ',frame);
+            stompClient.subscribe('/topic/hello', function(respnose){ //2
+                var body = JSON.parse(respnose.body);
+                console.log("一直在监听：",body);
+                $("#message").append("<div>"+body.content+"</div>");
+            });
+        });
+    };
+
+    var disconnect = function () {
+        if (stompClient != null) {
+            stompClient.disconnect();
+        }
+        console.log("Disconnected");
+    }
+
+
+</script>
