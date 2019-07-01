@@ -32,4 +32,6 @@
 
 **springboot-websocket** ：Websocket。
 
+**springboot-redis** ：Redis操作与封装、发布订阅。
+
  
