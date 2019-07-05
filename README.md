@@ -22,6 +22,8 @@
 
 **springboot-mongodb** ：MongoDB。
 
+**springboot-redis** ：Redis操作与封装、发布订阅。
+
 **springboot-log** ：Logback极简使用、按天按级别生成文件。
 
 **springboot-exception** ：统一异常处理。
@@ -32,10 +34,10 @@
 
 **springboot-schedule** ：计划任务。
 
-**springboot-websocket** ：Websocket。
-
-**springboot-redis** ：Redis操作与封装、发布订阅。
-
 **springboot-jwt** ：jwt令牌。
+
+**springboot-websocket** ：Websocket实时推送。
+
+**springboot-rabbitmq** ：RabbitMQ消息队列。
 
  
