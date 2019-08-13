@@ -40,4 +40,9 @@
 
 **springboot-rabbitmq** ：RabbitMQ消息队列。
 
+**springboot-dubbo-main** ：zookeeper注册中心调用层。
+
+**springboot-dubbo-service** ：zookeeper注册中心服务层。
+（zookeeper压缩包在里面，解压后打开bin目录双击zkServer.cmd即可，springboot-dubbo-main和springboot-dubbo-service两个系统均要启动，然后浏览器访问localhost:8080/index）
+ 
  
